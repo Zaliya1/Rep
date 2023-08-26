@@ -6,6 +6,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+Заполнить env.local согласно env.local.example
+[ссылка](https://rapidapi.com/digiwalls/api/free-to-play-games-database)
+
+### `npm install`
+
+
 ### `npm start`
 
 Runs the app in the development mode.\

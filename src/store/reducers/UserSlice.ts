@@ -1,14 +1,14 @@
-import {IUser} from "../../models/IUser";
+import {IGame} from "../../models/IUser";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {fetchUsers} from "./ActionCreator";
 
 interface UserState {
-    users: IUser[];
+    games: IGame[];
     isLoading: boolean;
     error: string;
 }
 const initialState: UserState = {
-    users: [],
+    games: [],
     isLoading: false,
     error: '',
 }
@@ -21,9 +21,9 @@ export const userSlice = createSlice({
         [fetchUsers.pending.type]: (state) => {
             state.isLoading = true;
         },
-        [fetchUsers.fulfilled.type]: (state, action: PayloadAction<IUser[]>) => {
+        [fetchUsers.fulfilled.type]: (state, action: PayloadAction<IGame[]>) => {
             state.isLoading = false;
-            state.users = action.payload;
+            state.games = action.payload;
             state.error = '';
         },
         [fetchUsers.rejected.type]: (state, action: PayloadAction<string>) => {

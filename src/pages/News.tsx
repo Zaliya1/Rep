@@ -9,16 +9,17 @@ export type NewsProps = {
 
 const News: FunctionComponent<NewsProps> = ({message}) => {
     const dispatch = useAppDispatch();
-    const {users, isLoading, error} = useAppSelector(state => state.userReducer)
+    const {games, isLoading, error} = useAppSelector(state => state.userReducer)
     useEffect(() => {
         dispatch(fetchUsers())
     }, [])
+    console.log(games)
     return (
         <>
             NEWS
             {isLoading && <h1>Loading</h1>}
             {error && <h1>{error}</h1>}
-            {JSON.stringify(users, null, 2)}
+            {JSON.stringify(games, null, 2)}
         </>
     );
 };
