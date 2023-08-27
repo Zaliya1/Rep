@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
-import {setupStore} from "./store";
+import {setupStore, persistor} from "./store";
+import {PersistGate} from "redux-persist/integration/react";
 
 const store = setupStore();
 const root = ReactDOM.createRoot(
@@ -13,7 +14,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
       <Provider store={store}>
-          <App />
+          <PersistGate persistor={persistor}>
+            <App />
+          </PersistGate>
       </Provider>
   </React.StrictMode>
 );

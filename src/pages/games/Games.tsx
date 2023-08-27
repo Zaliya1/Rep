@@ -11,7 +11,8 @@ const Games: FunctionComponent = () => {
     const {games, isLoading, error} = useAppSelector(state => state.gamesReducer)
     useEffect(() => {
         dispatch(fetchGames())
-    }, [])
+    }, [dispatch])
+
 
     return (
         <>

@@ -4,21 +4,35 @@ import {useEffect} from "react";
 import {fetchGame} from "../../store/reducers/ActionCreator";
 import Loader from "../../components/Loader";
 import Error from "../../components/Error";
+import storage from 'redux-persist/lib/storage'
+import {useParams} from "react-router-dom";
+import {gameSlice} from "../../store/reducers/GameSlice";
 
 const Game: FunctionComponent = () => {
     const dispatch = useAppDispatch();
+    const { setGame } = gameSlice.actions
 
-    const {game, isLoading, error} = useAppSelector(state => state.gameReducer)
+    storage.getItem('persist:root').then((res) => {
+        if (typeof res === "string") {
+            let obj = JSON.parse(res);
+            setGame(JSON.parse(obj.gameReducer).game);
+        }
+    })
+
+    const { id } = useParams()
+    const { game, isLoading, error } = useAppSelector(state => state.gameReducer)
     useEffect(() => {
-        dispatch(fetchGame())
-    }, [])
+        if (id && game.id !== id) {
+            dispatch(fetchGame(id))
+        }
+    }, [dispatch, id])
 
     return (
         <>
             GAMES
             {isLoading && <Loader/>}
             {error && <Error description={error}/>}
-            <p>{game.title}</p>
+            {game && <p>{game.title}</p>}
         </>
     );
 };

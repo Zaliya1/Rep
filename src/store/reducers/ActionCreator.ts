@@ -18,11 +18,13 @@ export const fetchGames = createAsyncThunk(
 
 export const fetchGame = createAsyncThunk(
     'games/fetchOne',
-    async(_, thunkAPI) => {
+    async(id: string, thunkAPI) => {
         try {
-            const response = await request.get('game?'+ new URLSearchParams({
-                id: '450'
-            }))
+            const response = await request.get('game', {
+                params: {
+                    id
+                }
+            })
             return IGameInfoToGameInfoTypeAdapter(response.data)
         } catch (e) {
             // TODO сделать обработку ошибок
@@ -30,3 +32,4 @@ export const fetchGame = createAsyncThunk(
         }
     }
 )
+
