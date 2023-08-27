@@ -1,7 +1,6 @@
 import {FunctionComponent} from "react";
 import { Link } from 'react-router-dom';
 import { Card } from 'antd';
-import {IGame} from "../../../types";
 import "./GameItem.css"
 
 export type GameItemProps = {

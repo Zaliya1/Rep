@@ -1,6 +1,7 @@
 import {request} from "../../api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import IGameToGameTypeAdapter from "../../adapters/IGame-to-GameType-adapter";
+import IGameInfoToGameInfoTypeAdapter from "../../adapters/IGames-to-GamesType-adapter";
 
 export const fetchGames = createAsyncThunk(
     'games/fetchAll',
@@ -19,8 +20,10 @@ export const fetchGame = createAsyncThunk(
     'games/fetchOne',
     async(_, thunkAPI) => {
         try {
-            const response = await request.get('games/id=405');
-            return IGameToGameTypeAdapter(response.data)
+            const response = await request.get('game?'+ new URLSearchParams({
+                id: '450'
+            }))
+            return IGameInfoToGameInfoTypeAdapter(response.data)
         } catch (e) {
             // TODO сделать обработку ошибок
             return thunkAPI.rejectWithValue("Не удалось загрузить игру")

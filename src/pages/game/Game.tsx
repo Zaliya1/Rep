@@ -1,16 +1,16 @@
 import {FunctionComponent} from "react";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {useEffect} from "react";
-import {fetchGames} from "../../store/reducers/ActionCreator";
+import {fetchGame} from "../../store/reducers/ActionCreator";
 import Loader from "../../components/Loader";
 import Error from "../../components/Error";
-import GameList from "./components/GameList";
 
-const Games: FunctionComponent = () => {
+const Game: FunctionComponent = () => {
     const dispatch = useAppDispatch();
-    const {games, isLoading, error} = useAppSelector(state => state.gamesReducer)
+
+    const {game, isLoading, error} = useAppSelector(state => state.gameReducer)
     useEffect(() => {
-        dispatch(fetchGames())
+        dispatch(fetchGame())
     }, [])
 
     return (
@@ -18,9 +18,9 @@ const Games: FunctionComponent = () => {
             GAMES
             {isLoading && <Loader/>}
             {error && <Error description={error}/>}
-            <GameList games={games} />
+            <p>{game.title}</p>
         </>
     );
 };
 
-export default Games;
+export default Game;

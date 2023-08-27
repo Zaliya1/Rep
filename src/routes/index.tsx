@@ -1,12 +1,12 @@
 import { useRoutes } from 'react-router-dom';
-import News from "../pages/News";
 import PageNotFound from "../pages/PageNotFound";
 import Games from "../pages/games/Games";
+import Game from "../pages/game/Game";
 
 const Router = () => {
   const routes = useRoutes([
     { path: '', element: <Games /> },
-    { path: '/id', element: <News /> },
+    { path: '/:id', element: <Game /> },
     { path: '*', element: <PageNotFound /> },
   ])
 

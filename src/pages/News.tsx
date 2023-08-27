@@ -9,7 +9,7 @@ export type NewsProps = {
 
 const News: FunctionComponent<NewsProps> = ({message}) => {
     const dispatch = useAppDispatch();
-    const {games, isLoading, error} = useAppSelector(state => state.userReducer)
+    const {games, isLoading, error} = useAppSelector(state => state.gamesReducer)
     useEffect(() => {
         dispatch(fetchGames())
     }, [])
