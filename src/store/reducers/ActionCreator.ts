@@ -1,23 +1,13 @@
 import {request} from "../../api";
-// import { IGame } from "../../models/IUser";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import IGameToGameTypeAdapter from "../../adapters/IGame-to-GameType-adapter";
 
-export const fetchUsers = createAsyncThunk(
-    'user/fetchAll',
+export const fetchGames = createAsyncThunk(
+    'games/fetchAll',
     async(_, thunkAPI) => {
         try {
             const response = await request.get('games');
-            // return response.data
-            return response.data.map((item: any) => {
-                return {
-                    id: String(item.id),
-                    title: item.title,
-                    releaseDate: item.release_date,
-                    publisher: item.publisher,
-                    genre: item.genre,
-                    img: item.thumbnail,
-                }
-            })
+            return IGameToGameTypeAdapter(response.data)
         } catch (e) {
            // TODO сделать обработку ошибок
             return thunkAPI.rejectWithValue("Не удалось загрузить игры")
@@ -25,4 +15,15 @@ export const fetchUsers = createAsyncThunk(
     }
 )
 
-
+export const fetchGame = createAsyncThunk(
+    'games/fetchOne',
+    async(_, thunkAPI) => {
+        try {
+            const response = await request.get('games/id=405');
+            return IGameToGameTypeAdapter(response.data)
+        } catch (e) {
+            // TODO сделать обработку ошибок
+            return thunkAPI.rejectWithValue("Не удалось загрузить игру")
+        }
+    }
+)

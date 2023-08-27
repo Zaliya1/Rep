@@ -1,10 +1,10 @@
 import {FunctionComponent} from "react";
 import GameItem from "./GameItem";
-import {IGame} from "../../../models/IUser";
+import {GameType} from "../../../types";
 import { List } from 'antd';
 
 export type GameListProps = {
-    games: IGame[];
+    games: GameType[];
 }
 
 const GameList: FunctionComponent<GameListProps> = ({games}) => {
@@ -12,7 +12,7 @@ const GameList: FunctionComponent<GameListProps> = ({games}) => {
     <List
         className="games-list"
         bordered
-        grid={{ gutter: 3, column: 6 }}
+        grid={{ gutter: 30, column: 6 }}
         dataSource={games}
         renderItem={(game) => {
             let props = {

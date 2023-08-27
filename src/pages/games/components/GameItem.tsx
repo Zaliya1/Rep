@@ -1,10 +1,17 @@
 import {FunctionComponent} from "react";
 import { Link } from 'react-router-dom';
 import { Card } from 'antd';
-import {IGame} from "../../../models/IUser";
+import {IGame} from "../../../types";
 import "./GameItem.css"
 
-interface GameItemProps extends IGame {}
+export type GameItemProps = {
+    id: string,
+    title: string,
+    releaseDate: string,
+    publisher: string,
+    genre: string,
+    img: string,
+}
 
 const GameItem: FunctionComponent<GameItemProps> = ({id, title, genre, releaseDate, publisher, img}) => {
     const { Meta } = Card;
@@ -17,8 +24,8 @@ const GameItem: FunctionComponent<GameItemProps> = ({id, title, genre, releaseDa
         <li className="games-item">
             <Link to={id} className="games-item__link">
                 <Card
+                    className="games-item__card"
                     hoverable
-                    style={{ width: 240 }}
                     cover={<img alt="example" src={img} />}
                 >
                     <Meta title={title} description={description} />

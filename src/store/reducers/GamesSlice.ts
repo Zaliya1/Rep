@@ -1,35 +1,35 @@
-import {IGame} from "../../models/IUser";
+import {GameType} from "../../types";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchUsers} from "./ActionCreator";
+import {fetchGames} from "./ActionCreator";
 
-interface UserState {
-    games: IGame[];
+interface GamesState {
+    games: GameType[];
     isLoading: boolean;
     error: string;
 }
-const initialState: UserState = {
+const initialState: GamesState = {
     games: [],
     isLoading: false,
     error: '',
 }
 
-export const userSlice = createSlice({
-    name: 'user',
+export const gamesSlice = createSlice({
+    name: 'games',
     initialState,
     reducers: {},
     extraReducers: {
-        [fetchUsers.pending.type]: (state) => {
+        [fetchGames.pending.type]: (state) => {
             state.isLoading = true;
         },
-        [fetchUsers.fulfilled.type]: (state, action: PayloadAction<IGame[]>) => {
+        [fetchGames.fulfilled.type]: (state, action: PayloadAction<GameType[]>) => {
             state.isLoading = false;
             state.games = action.payload;
             state.error = '';
         },
-        [fetchUsers.rejected.type]: (state, action: PayloadAction<string>) => {
+        [fetchGames.rejected.type]: (state, action: PayloadAction<string>) => {
             state.isLoading = false;
             state.error = action.payload
         },
     }
 })
-export default userSlice.reducer;
+export default gamesSlice.reducer;
