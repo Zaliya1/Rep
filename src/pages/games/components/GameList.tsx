@@ -5,14 +5,14 @@ import { List } from 'antd';
 
 export type GameListProps = {
     games: GameType[];
+    columnCount: number;
 }
 
-const GameList: FunctionComponent<GameListProps> = ({games}) => {
+const GameList: FunctionComponent<GameListProps> = ({games, columnCount}) => {
     return (
     <List
         className="games-list"
-        bordered
-        grid={{ gutter: 30, column: 6 }}
+        grid={{ gutter: 30, column: columnCount }}
         dataSource={games}
         renderItem={(game) => {
             let props = {
