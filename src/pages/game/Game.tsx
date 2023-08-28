@@ -2,7 +2,7 @@ import {FunctionComponent} from "react";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {useEffect} from "react";
 import {fetchGame} from "../../store/reducers/ActionCreator";
-import Loader from "../../components/Loader";
+import Loader from "@components/Loader";
 import Error from "../../components/Error";
 import storage from 'redux-persist/lib/storage'
 import {useParams} from "react-router-dom";
