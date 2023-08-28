@@ -2,8 +2,8 @@ import {FunctionComponent} from "react";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {useEffect} from "react";
 import {fetchGame} from "../../store/reducers/ActionCreator";
-import Loader from "../../components/Loader";
-import Error from "../../components/Error";
+import Loader from "@/components/Loader";
+import Error from "@/components/Error";
 import storage from 'redux-persist/lib/storage'
 import {useParams} from "react-router-dom";
 import {gameSlice} from "../../store/reducers/GameSlice";
@@ -22,14 +22,14 @@ const Game: FunctionComponent = () => {
     const { id } = useParams()
     const { game, isLoading, error } = useAppSelector(state => state.gameReducer)
     useEffect(() => {
-        if (id && game.id !== id) {
+        if (id && game && game.id !== id) {
             dispatch(fetchGame(id))
         }
-    }, [dispatch, id])
+    }, [dispatch, id, game])
 
     return (
         <>
-            GAMES
+            GAME
             {isLoading && <Loader/>}
             {error && <Error description={error}/>}
             {game && <p>{game.title}</p>}
