@@ -1,12 +1,12 @@
 import {FunctionComponent} from "react";
-import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {useAppDispatch, useAppSelector} from "@/hooks/redux";
 import {useEffect} from "react";
-import {fetchGame} from "../../store/reducers/ActionCreator";
+import {fetchGame} from "@/store/reducers/ActionCreator";
 import Loader from "@/components/Loader";
 import Error from "@/components/Error";
 import storage from 'redux-persist/lib/storage'
 import {useParams} from "react-router-dom";
-import {gameSlice} from "../../store/reducers/GameSlice";
+import {gameSlice} from "@/store/reducers/GameSlice";
 import { Button } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import {Link} from "react-router-dom";
@@ -33,14 +33,14 @@ const Game: FunctionComponent = () => {
     }, [dispatch, id, game])
 
     return (
-        <main className="game">
+        <div className="game">
             {!!isLoading && <Loader />}
             {!!error && <Error description={error}/>}
-            {!!game && <div>
+            {!!game && <>
                 <Link to="/"><Button type="primary" ghost icon={<LeftOutlined />} className="game__button">Назад</Button></Link>
                 <GameInfo {...game} />
-            </div>}
-        </main>
+            </>}
+        </div>
     );
 };
 

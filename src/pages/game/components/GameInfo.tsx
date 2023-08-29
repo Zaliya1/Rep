@@ -1,10 +1,10 @@
 import {FunctionComponent} from "react";
 import {GameInfoType} from "@/types";
-import { Image, Carousel, List } from 'antd';
+import { Image, Carousel } from 'antd';
 import "./GameInfo.css"
 
 const GameInfo: FunctionComponent<GameInfoType> = (
-    {id, title, releaseDate, publisher, developer, genre, img, screenshots, minimumSystemRequirements}
+    {title, releaseDate, publisher, developer, genre, img, screenshots, minimumSystemRequirements}
 ) => {
     return (
         <div className="game-info">
@@ -18,18 +18,18 @@ const GameInfo: FunctionComponent<GameInfoType> = (
             <p>Издатель: {publisher}</p>
             <p>Разработчик: {developer}</p>
             <p>Жанр: {genre}</p>
-            <List
-                className="game-info__list"
-                header="Системные требования"
-                size="small"
-                bordered
-                dataSource={Object.values(minimumSystemRequirements)}
-                renderItem={(item) => <List.Item>{item}</List.Item>}
-            />
+            <p>Системные требования: </p>
+            <ul>
+                <li>{minimumSystemRequirements.os}</li>
+                <li>{minimumSystemRequirements.graphics}</li>
+                <li>{minimumSystemRequirements.memory}</li>
+                <li>{minimumSystemRequirements.storage}</li>
+                <li>{minimumSystemRequirements.processor}</li>
+            </ul>
 
-            <Carousel autoplay>
+            <Carousel autoplay dotPosition="top">
                 { screenshots.map((screenshot) => {
-                    return <Image src={screenshot.image}/>
+                    return <Image key={screenshot.id} src={screenshot.image}/>
                 })}
             </Carousel>
         </div>

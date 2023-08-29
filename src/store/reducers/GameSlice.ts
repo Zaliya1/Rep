@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {fetchGame} from "./ActionCreator";
-import {GameInfoType} from "../../types";
+import {GameInfoType} from "@/types";
 
 interface GameState {
     game: any;
