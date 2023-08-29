@@ -16,12 +16,11 @@ const Games: FunctionComponent = () => {
     }, [dispatch])
 
     return (
-        <>
-            GAMES
+        <main>
             {!!isLoading && <Loader/>}
             {!!error && <Error description={error}/>}
             {!!games.length && <GameList games={games} columnCount={count} />}
-        </>
+        </main>
     );
 };
 

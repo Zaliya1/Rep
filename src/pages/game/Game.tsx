@@ -7,6 +7,11 @@ import Error from "@/components/Error";
 import storage from 'redux-persist/lib/storage'
 import {useParams} from "react-router-dom";
 import {gameSlice} from "../../store/reducers/GameSlice";
+import { Button } from 'antd';
+import { LeftOutlined } from '@ant-design/icons';
+import {Link} from "react-router-dom";
+import GameInfo from "@/pages/game/components/GameInfo";
+import "./Game.css"
 
 const Game: FunctionComponent = () => {
     const dispatch = useAppDispatch();
@@ -28,12 +33,14 @@ const Game: FunctionComponent = () => {
     }, [dispatch, id, game])
 
     return (
-        <>
-            GAME
-            {isLoading && <Loader/>}
-            {error && <Error description={error}/>}
-            {game && <p>{game.title}</p>}
-        </>
+        <main className="game">
+            {!!isLoading && <Loader />}
+            {!!error && <Error description={error}/>}
+            {!!game && <div>
+                <Link to="/"><Button type="primary" ghost icon={<LeftOutlined />} className="game__button">Назад</Button></Link>
+                <GameInfo {...game} />
+            </div>}
+        </main>
     );
 };
 

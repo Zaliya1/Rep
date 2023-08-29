@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const SCREEN_MD = 768;
 const SCREEN_LG = 992;
 // export const SCREEN_XL = 1200;
-const SCREEN_XXL = 1400;
+// const SCREEN_XXL = 1400;
 
 export const useResize = () => {
     const [width, setWidth] = useState(window.innerWidth);
@@ -29,7 +29,7 @@ export const useResize = () => {
         } else {
             setCount(1)
         }
-    })
+    }, [width])
 
     return count;
 };
