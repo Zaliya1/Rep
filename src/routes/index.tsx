@@ -1,7 +1,7 @@
 import { useRoutes } from 'react-router-dom';
-import PageNotFound from "../pages/PageNotFound";
-import Games from "../pages/games/Games";
-import Game from "../pages/game/Game";
+import PageNotFound from "@/pages/PageNotFound";
+import Games from "@/pages/games/Games";
+import Game from "@/pages/game/Game";
 
 const Router = () => {
   const routes = useRoutes([

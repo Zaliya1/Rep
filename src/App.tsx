@@ -6,9 +6,13 @@ import Routes from './routes';
 function App() {
   return (
       <Router>
-          <div className="container">
-              <Routes />
-          </div>
+          <header/>
+          <main>
+              <div className="container">
+                <Routes />
+              </div>
+          </main>
+          <footer/>
       </Router>
   );
 }

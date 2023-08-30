@@ -1,7 +1,7 @@
-import {request} from "../../api";
+import {request} from "@/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import IGameToGameTypeAdapter from "../../adapters/IGame-to-GameType-adapter";
-import IGameInfoToGameInfoTypeAdapter from "../../adapters/IGames-to-GamesType-adapter";
+import IGameToGameTypeAdapter from "@/adapters/IGame-to-GameType-adapter";
+import IGameInfoToGameInfoTypeAdapter from "@/adapters/IGames-to-GamesType-adapter";
 
 export const fetchGames = createAsyncThunk(
     'games/fetchAll',

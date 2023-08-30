@@ -1,0 +1,8 @@
+.pagination {
+    margin-bottom: 10px;
+}
+.ant-list-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

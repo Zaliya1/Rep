@@ -1,4 +1,4 @@
-import {GameType, IGame} from "../types";
+import {GameType, IGame} from "@/types";
 
 export default function IGameToGameTypeAdapter(games: IGame[]):GameType[] {
     return games.map((item) => {
