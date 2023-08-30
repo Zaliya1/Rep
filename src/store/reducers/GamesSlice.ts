@@ -1,16 +1,23 @@
-import {GameType} from "@/types";
+import {GameType, SelectType} from "@/types";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {fetchGames} from "./ActionCreator";
+import {genres, platforms, sorting} from "@/store/consts";
 
-interface GamesState {
+export interface GamesState {
     games: GameType[];
     isLoading: boolean;
     error: string;
+    genres: SelectType[],
+    platforms: SelectType[],
+    sorting: SelectType[],
 }
 const initialState: GamesState = {
     games: [],
     isLoading: false,
     error: '',
+    genres: genres,
+    platforms: platforms,
+    sorting: sorting
 }
 
 export const gamesSlice = createSlice({

@@ -4,5 +4,24 @@
 .ant-list-items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+.games__settings {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.games__filters, .games__pagination {
+    display: flex;
+    flex-direction: column;
+}
+.games__pagination {
+    align-items: flex-end;
+}
+.games__filters {
+    align-items: flex-start;
+}
+.filter-select {
+    min-width: 200px;
+    margin-bottom: 10px;
 }

@@ -52,3 +52,13 @@ export interface GameInfoType extends AdaptiveGame {
     screenshots: Screenshot[],
     status: string,
 }
+
+export type SelectType = {
+    label: string,
+    value: string
+}
+export type QueryParamsType = {
+    platform?: 'pc' | 'browser' | 'all';
+    category?: string;
+    'sort-by'?: 'release-date' | 'popularity' | 'alphabetical' | 'relevance';
+}

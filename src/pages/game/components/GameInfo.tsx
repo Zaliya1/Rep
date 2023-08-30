@@ -18,14 +18,14 @@ const GameInfo: FunctionComponent<GameInfoType> = (
             <p>Издатель: {publisher}</p>
             <p>Разработчик: {developer}</p>
             <p>Жанр: {genre}</p>
-            <p>Системные требования: </p>
-            <ul>
-                <li>{minimumSystemRequirements.os}</li>
-                <li>{minimumSystemRequirements.graphics}</li>
-                <li>{minimumSystemRequirements.memory}</li>
-                <li>{minimumSystemRequirements.storage}</li>
-                <li>{minimumSystemRequirements.processor}</li>
-            </ul>
+            <>
+                <p>Системные требования: </p>
+                <ul>
+                    {Object.entries(minimumSystemRequirements).map(([key, value]) => (
+                        <li key={key}>{value}</li>
+                    ))}
+                </ul>
+            </>
 
             <Carousel autoplay dotPosition="top">
                 { screenshots.map((screenshot) => {
