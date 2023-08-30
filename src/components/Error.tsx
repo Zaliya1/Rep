@@ -9,8 +9,8 @@ export type ErrorProps = {
 const Error: FunctionComponent<ErrorProps> = ({message = 'Ошибка сервера', description}) => {
     return (
         <Alert
-            message
-            description
+            message={message}
+            description={description}
             type="error"
             showIcon
             className="error"

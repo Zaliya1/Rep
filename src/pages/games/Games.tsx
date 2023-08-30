@@ -34,8 +34,8 @@ const Games: FunctionComponent = () => {
     return (
         <div className="games">
             {!!isLoading && <Loader/>}
-            {!!error && <Error description={error}/>}
-            {!!games.length && <>
+            {!!error && !isLoading && <Error description={error}/>}
+            {!!games.length && !isLoading && !error && <>
                 <Pagination
                     className="pagination"
                     defaultCurrent={current}

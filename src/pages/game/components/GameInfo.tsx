@@ -14,21 +14,21 @@ const GameInfo: FunctionComponent<GameInfoType> = (
                 className="game-info__img"
             />
             <h1>{title}</h1>
-            <p>Дата релиза: {releaseDate.split("-").reverse().join(".")}</p>
+            <p>Дата релиза: {!!releaseDate && releaseDate.split("-").reverse().join(".")}</p>
             <p>Издатель: {publisher}</p>
             <p>Разработчик: {developer}</p>
             <p>Жанр: {genre}</p>
             <p>Системные требования: </p>
-            <ul>
+            {!!minimumSystemRequirements && <ul>
                 <li>{minimumSystemRequirements.os}</li>
                 <li>{minimumSystemRequirements.graphics}</li>
                 <li>{minimumSystemRequirements.memory}</li>
                 <li>{minimumSystemRequirements.storage}</li>
                 <li>{minimumSystemRequirements.processor}</li>
-            </ul>
+            </ul>}
 
             <Carousel autoplay dotPosition="top">
-                { screenshots.map((screenshot) => {
+                { !!screenshots && screenshots.map((screenshot) => {
                     return <Image key={screenshot.id} src={screenshot.image}/>
                 })}
             </Carousel>

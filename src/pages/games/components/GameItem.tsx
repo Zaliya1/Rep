@@ -21,7 +21,7 @@ const GameItem: FunctionComponent<GameItemProps> = ({id, title, genre, releaseDa
     </>)
     return (
         <li className="games-item">
-            <Link to={id} className="games-item__link">
+            <Link to={`game/${id}`} className="games-item__link" >
                 <Card
                     className="games-item__card"
                     hoverable

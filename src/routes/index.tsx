@@ -6,7 +6,7 @@ import Game from "@/pages/game/Game";
 const Router = () => {
   const routes = useRoutes([
     { path: '', element: <Games /> },
-    { path: '/:id', element: <Game /> },
+    { path: '/game/:id', element: <Game /> },
     { path: '*', element: <PageNotFound /> },
   ])
 
