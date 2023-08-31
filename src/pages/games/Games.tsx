@@ -31,12 +31,30 @@ const Games: FunctionComponent = () => {
     // games list
     const dispatch = useAppDispatch();
     const {games, isLoading, error, genres, platforms, sorting} = useAppSelector(state => state.gamesReducer)
-    const [isCancel, setCancel] = useState(false);
     useEffect(() => {
-        console.log(isCancel)
-        dispatch(fetchGames({params, isCancel}))
-    }, [dispatch, params, isCancel])
+        dispatch(fetchGames(params))
+        return () => {
+            console.log('AAAAAA')
+        }
+    }, [params])
     // useEffect(() => setCancel(true), [])
+    // useEffect(() => {
+    //     const controller = new AbortController()
+    //     const signal = controller.signal
+    //     dispatch(fetchGames({...params, signal}))
+    //     return () => {
+    //         controller.abort()
+    //     }
+    // }, [])
+    // useEffect(() => {
+    //     // Dispatching the thunk returns a promise
+    //     // const promise = dispatch(fetchGames(params))
+    //     return () => {
+    //         // `createAsyncThunk` attaches an `abort()` method to the promise
+    //         console.log('AAAAAA')
+    //         // promise.abort()
+    //     }
+    // }, [])
 
     // pagination
     const [current, setCurrent] = useState(1);
