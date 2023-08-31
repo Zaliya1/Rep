@@ -1,7 +1,6 @@
 import {FunctionComponent} from "react";
 import {GameInfoType} from "@/types";
 import { Image, Carousel } from 'antd';
-import "./GameInfo.css"
 
 const GameInfo: FunctionComponent<GameInfoType> = (
     {title, releaseDate, publisher, developer, genre, img, screenshots, minimumSystemRequirements}
@@ -11,21 +10,19 @@ const GameInfo: FunctionComponent<GameInfoType> = (
             <Image
                 src={img}
                 alt="Постер игры"
-                className="game-info__img"
             />
             <h1>{title}</h1>
             <p>Дата релиза: {releaseDate.split("-").reverse().join(".")}</p>
             <p>Издатель: {publisher}</p>
             <p>Разработчик: {developer}</p>
             <p>Жанр: {genre}</p>
-            <>
-                <p>Системные требования: </p>
-                <ul>
-                    {Object.entries(minimumSystemRequirements).map(([key, value]) => (
-                        <li key={key}>{value}</li>
-                    ))}
-                </ul>
-            </>
+            <p>Системные требования: </p>
+            <ul>
+                {Object.entries(minimumSystemRequirements).map(([key, value]) => (
+                    <li key={key}>- {value}</li>
+                ))}
+            </ul>
+
 
             <Carousel autoplay dotPosition="top">
                 { screenshots.map((screenshot) => {

@@ -7,10 +7,10 @@ export const platforms: SelectType[] = [
 ];
 
 export const sorting: SelectType[] = [
-    {label: "По дату выпуска", value:"release-date"},
-    {label: "По популярности", value: "popularity"},
-    {label: "По алфавиту", value: "alphabetical"},
-    {label: "По актуальности", value: "relevance"},
+    {label: "Сортировать по дате выпуска", value:"release-date"},
+    {label: "Сортировать по популярности", value: "popularity"},
+    {label: "Сортировать по алфавиту", value: "alphabetical"},
+    {label: "Сортировать по актуальности", value: "relevance"},
 ];
 
 export const genres: SelectType[] = [

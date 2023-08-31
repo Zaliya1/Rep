@@ -16,13 +16,16 @@ const Games: FunctionComponent = () => {
         'sort-by': undefined,
     });
     const setPlatform = (platform: any) => {
-        setParams({...params, platform})
+        setParams({...params, platform});
+        setCurrent(1);
     };
     const setCategory = (category: any) => {
-        setParams({...params, category})
+        setParams({...params, category});
+        setCurrent(1);
     };
     const setSorting = (sort: any) => {
-        setParams({...params, ['sort-by']: sort})
+        setParams({...params, ['sort-by']: sort});
+        setCurrent(1);
     };
 
     // games list
@@ -40,7 +43,6 @@ const Games: FunctionComponent = () => {
         setCurrent(page);
     };
     const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize) => {
-        setCurrent(1);
         setPageSize(pageSize);
     };
 
@@ -65,7 +67,7 @@ const Games: FunctionComponent = () => {
                             className="filter-select"
                             allowClear
                             defaultValue= {params.category}
-                            placeholder="Выбери фильтрацию по жанрам"
+                            placeholder="Выберите фильтрацию по жанрам"
                             onChange={setCategory}
                             options={genres}
                         />

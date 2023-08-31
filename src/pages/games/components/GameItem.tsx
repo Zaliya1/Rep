@@ -15,9 +15,9 @@ export type GameItemProps = {
 const GameItem: FunctionComponent<GameItemProps> = ({id, title, genre, releaseDate, publisher, img}) => {
     const { Meta } = Card;
     let description = (<>
-        <p>Дата релиза: {releaseDate}</p>
-        <p>Издатель: {publisher}</p>
-        <p>Жанр: {genre}</p>
+        <p className="card-description">Дата релиза: {releaseDate}</p>
+        <p className="card-description">Издатель: {publisher}</p>
+        <p className="card-description">Жанр: {genre}</p>
     </>)
     return (
         <li className="games-item">

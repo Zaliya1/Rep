@@ -4,3 +4,8 @@
 .games-item__card {
   max-width: 300px;
 }
+@media (max-width: 576px) {
+  .card-description {
+    font-size: 15px;
+  }
+}
