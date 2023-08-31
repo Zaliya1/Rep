@@ -1,7 +1,7 @@
 import {request} from "@/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import IGameToGameTypeAdapter from "@/adapters/IGame-to-GameType-adapter";
-import IGameInfoToGameInfoTypeAdapter from "@/adapters/IGames-to-GamesType-adapter";
+import IGameInfoToGameInfoTypeAdapter from "@/adapters/IGameInfo-to-GameInfoType-Adapter";
 import {QueryParamsType} from "@/types";
 
 export const fetchGames = createAsyncThunk(

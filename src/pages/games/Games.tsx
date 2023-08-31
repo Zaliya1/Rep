@@ -24,7 +24,7 @@ const Games: FunctionComponent = () => {
         setCurrent(1);
     };
     const setSorting = (sort: any) => {
-        setParams({...params, ['sort-by']: sort});
+        setParams({...params, 'sort-by': sort});
         setCurrent(1);
     };
 
@@ -52,9 +52,11 @@ const Games: FunctionComponent = () => {
 
     return (
         <div className="games">
-            {!!isLoading && <Loader/>}
-            {!!error && !isLoading && <Error description={error}/>}
-            {!!games.length && !isLoading && !error && <>
+            {isLoading ? (
+                <Loader/>
+            ) : error ? (
+                <Error description={error}/>
+            ) : (<>
                 <div className="games__settings">
                     <div className="games__filters">
                         <Select
@@ -91,7 +93,7 @@ const Games: FunctionComponent = () => {
                 </div>
 
                 <GameList games={paginatedGames} />
-            </>}
+            </>)}
         </div>
     );
 };
