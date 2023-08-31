@@ -12,23 +12,23 @@ const GameInfo: FunctionComponent<GameInfoType> = (
                 alt="Постер игры"
             />
             <h1>{title}</h1>
-            <p>Дата релиза: {releaseDate.split("-").reverse().join(".")}</p>
+            {releaseDate && <p>Дата релиза: {releaseDate.split("-").reverse().join(".")}</p>}
             <p>Издатель: {publisher}</p>
             <p>Разработчик: {developer}</p>
             <p>Жанр: {genre}</p>
             <p>Системные требования: </p>
-            <ul>
+            {minimumSystemRequirements && <ul>
                 {Object.entries(minimumSystemRequirements).map(([key, value]) => (
                     <li key={key}>- {value}</li>
                 ))}
-            </ul>
+            </ul>}
 
 
-            <Carousel autoplay dotPosition="top">
+            {screenshots && <Carousel autoplay dotPosition="top">
                 { screenshots.map((screenshot) => {
                     return <Image key={screenshot.id} src={screenshot.image}/>
                 })}
-            </Carousel>
+            </Carousel>}
         </div>
     );
 };

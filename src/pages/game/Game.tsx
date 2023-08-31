@@ -34,12 +34,14 @@ const Game: FunctionComponent = () => {
 
     return (
         <div className="game">
-            {!!isLoading && <Loader />}
-            {!!error && !isLoading && <Error description={error}/>}
-            {!!game && !isLoading && !error  && <>
+            {isLoading ? (
+                <Loader/>
+            ) : error ? (
+                <Error description={error}/>
+            ) : (<>
                 <Link to="/"><Button type="primary" ghost icon={<LeftOutlined />} className="game__button">Назад</Button></Link>
                 <GameInfo {...game} />
-            </>}
+            </>)}
         </div>
     );
 };

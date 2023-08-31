@@ -5,10 +5,10 @@ export type PageNotFoundProps = {
     message?: string;
 }
 
-const PageNotFound: FunctionComponent<PageNotFoundProps> = ({message}) => {
+const PageNotFound: FunctionComponent<PageNotFoundProps> = ({message= "Страница не найден или находится в разработке"}) => {
     return (
         <>
-            {!!message ? <p>{message}</p> : <p>Страница не найдена</p>}
+            <p>{message}</p>
             <p>Вернуться на <Link to="/">Главную</Link></p>
         </>
     );
