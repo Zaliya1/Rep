@@ -1,4 +1,5 @@
 import axios from "axios";
+import axiosRetry from 'axios-retry';
 
 export const request = axios.create({
     baseURL: 'https://free-to-play-games-database.p.rapidapi.com/api/',
@@ -8,3 +9,8 @@ export const request = axios.create({
     },
     responseType: "json"
 })
+
+axiosRetry(request, {
+    retries: 3,
+    retryDelay: axiosRetry.exponentialDelay
+});

@@ -21,7 +21,8 @@
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "axios-retry": "^3.7.0"
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
